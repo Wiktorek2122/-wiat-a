@@ -1,94 +1,128 @@
+// Piny sygnalizatora A
 int redA = 13;
 int yellowA = 12;
 int greenA = 11;
+
+// Piny sygnalizatora B
 int redB = 10;
 int yellowB = 9;
 int greenB = 8;
+
+// Piny sygnalizatora C
 int redC = 7;
 int yellowC = 6;
 int greenC = 5;
+
+// Piny sygnalizatora D
 int redD = 4;
 int yellowD = 3;
 int greenD = 2;
 
 void setup() {
-pinMode (redA, OUTPUT);
-pinMode (yellowA, OUTPUT);
-pinMode (greenA, OUTPUT);
+  // Ustawienie pinów sygnalizatora A jako wyjścia
+  pinMode(redA, OUTPUT);
+  pinMode(yellowA, OUTPUT);
+  pinMode(greenA, OUTPUT);
 
-pinMode (redB, OUTPUT);
-pinMode (yellowB, OUTPUT);
-pinMode (greenB, OUTPUT);
+  // Ustawienie pinów sygnalizatora B jako wyjścia
+  pinMode(redB, OUTPUT);
+  pinMode(yellowB, OUTPUT);
+  pinMode(greenB, OUTPUT);
 
-pinMode (redC, OUTPUT);
-pinMode (yellowC, OUTPUT);
-pinMode (greenC, OUTPUT);
+  // Ustawienie pinów sygnalizatora C jako wyjścia
+  pinMode(redC, OUTPUT);
+  pinMode(yellowC, OUTPUT);
+  pinMode(greenC, OUTPUT);
 
-pinMode (redD, OUTPUT);
-pinMode (yellowD, OUTPUT);
-pinMode (greenD, OUTPUT);
+  // Ustawienie pinów sygnalizatora D jako wyjścia
+  pinMode(redD, OUTPUT);
+  pinMode(yellowD, OUTPUT);
+  pinMode(greenD, OUTPUT);
 }
 
-void loop() { 
-digitalWrite(greenA, HIGH);
-digitalWrite(redB, HIGH);
-digitalWrite(redC, HIGH);
-digitalWrite(redD, HIGH);
-delay(9000);
-  
-digitalWrite(greenA, LOW);
-digitalWrite(redB, LOW);
+void loop() {
 
-digitalWrite(yellowA, HIGH);
-digitalWrite(yellowB, HIGH);
-delay(1000);
-  
-digitalWrite(yellowA, LOW);
-digitalWrite(yellowB, LOW);
+  // SYGNALIZATOR A - światło zielone
+  // Pozostałe sygnalizatory mają światło czerwone
+  digitalWrite(greenA, HIGH);
+  digitalWrite(redB, HIGH);
+  digitalWrite(redC, HIGH);
+  digitalWrite(redD, HIGH);
+  delay(9000); // 9 sekund
 
-digitalWrite(redA, HIGH);
-digitalWrite(greenB, HIGH);
-delay(5000);
+  // Wyłączenie zielonego A i czerwonego B
+  digitalWrite(greenA, LOW);
+  digitalWrite(redB, LOW);
 
-digitalWrite(greenB, LOW);
-digitalWrite(redC, LOW);
+  // Światło żółte przed zmianą
+  digitalWrite(yellowA, HIGH);
+  digitalWrite(yellowB, HIGH);
+  delay(1000); // 1 sekunda
 
+  // Wyłączenie świateł żółtych
+  digitalWrite(yellowA, LOW);
+  digitalWrite(yellowB, LOW);
 
-digitalWrite(yellowB, HIGH);
-digitalWrite(yellowC, HIGH);
-delay(1000);
+  // SYGNALIZATOR B - światło zielone
+  // Sygnalizator A otrzymuje czerwone światło
+  digitalWrite(redA, HIGH);
+  digitalWrite(greenB, HIGH);
+  delay(5000); // 5 sekund
 
-digitalWrite(yellowB, LOW);
-digitalWrite(yellowC, LOW);
+  // Wyłączenie zielonego B
+  // Wyłączenie czerwonego C
+  digitalWrite(greenB, LOW);
+  digitalWrite(redC, LOW);
 
+  // Światło żółte przed zmianą
+  digitalWrite(yellowB, HIGH);
+  digitalWrite(yellowC, HIGH);
+  delay(1000); // 1 sekunda
 
-digitalWrite(redB, HIGH);
-digitalWrite(greenC, HIGH);
-digitalWrite(redD, HIGH);
-delay(5000);
+  // Wyłączenie świateł żółtych
+  digitalWrite(yellowB, LOW);
+  digitalWrite(yellowC, LOW);
 
-digitalWrite(greenC, LOW);
-digitalWrite(redD, LOW);
+  // SYGNALIZATOR C - światło zielone
+  // B ma czerwone, D ma czerwone
+  digitalWrite(redB, HIGH);
+  digitalWrite(greenC, HIGH);
+  digitalWrite(redD, HIGH);
+  delay(5000); // 5 sekund
 
-digitalWrite(yellowC, HIGH);
-digitalWrite(yellowD, HIGH);
-delay(1000);
+  // Wyłączenie zielonego C
+  // Wyłączenie czerwonego D
+  digitalWrite(greenC, LOW);
+  digitalWrite(redD, LOW);
 
-digitalWrite(yellowC, LOW);
-digitalWrite(yellowD, LOW);
+  // Światło żółte przed zmianą
+  digitalWrite(yellowC, HIGH);
+  digitalWrite(yellowD, HIGH);
+  delay(1000); // 1 sekunda
 
-digitalWrite(redC, HIGH);
-digitalWrite(yellowD, HIGH);
-delay(5000);
+  // Wyłączenie świateł żółtych
+  digitalWrite(yellowC, LOW);
+  digitalWrite(yellowD, LOW);
 
-digitalWrite(redC, LOW);
-digitalWrite(greenD, LOW);
-digitalWrite(redA, LOW);
+  // SYGNALIZATOR D - przejście do kolejnego etapu
+  digitalWrite(redC, HIGH);
+  digitalWrite(yellowD, HIGH);
+  delay(5000); // 5 sekund
 
-digitalWrite(yellowA, HIGH);
-digitalWrite(yellowD, HIGH);
-delay(1000);
+  // Wyłączenie czerwonego C i zielonego D
+  digitalWrite(redC, LOW);
+  digitalWrite(greenD, LOW);
+  digitalWrite(redA, LOW);
 
-digitalWrite(yellowA, LOW);
-digitalWrite(yellowD, LOW);
+  // Światła żółte przed rozpoczęciem kolejnego cyklu
+  digitalWrite(yellowA, HIGH);
+  digitalWrite(yellowD, HIGH);
+  delay(1000); // 1 sekunda
+
+  // Wyłączenie świateł żółtych
+  digitalWrite(yellowA, LOW);
+  digitalWrite(yellowD, LOW);
+
+  // Po wykonaniu całej sekwencji program
+  // automatycznie wraca na początek funkcji loop()
 }
