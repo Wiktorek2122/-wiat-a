@@ -1,0 +1,94 @@
+int redA = 13;
+int yellowA = 12;
+int greenA = 11;
+int redB = 10;
+int yellowB = 9;
+int greenB = 8;
+int redC = 7;
+int yellowC = 6;
+int greenC = 5;
+int redD = 4;
+int yellowD = 3;
+int greenD = 2;
+
+void setup() {
+pinMode (redA, OUTPUT);
+pinMode (yellowA, OUTPUT);
+pinMode (greenA, OUTPUT);
+
+pinMode (redB, OUTPUT);
+pinMode (yellowB, OUTPUT);
+pinMode (greenB, OUTPUT);
+
+pinMode (redC, OUTPUT);
+pinMode (yellowC, OUTPUT);
+pinMode (greenC, OUTPUT);
+
+pinMode (redD, OUTPUT);
+pinMode (yellowD, OUTPUT);
+pinMode (greenD, OUTPUT);
+}
+
+void loop() { 
+digitalWrite(greenA, HIGH);
+digitalWrite(redB, HIGH);
+digitalWrite(redC, HIGH);
+digitalWrite(redD, HIGH);
+delay(9000);
+  
+digitalWrite(greenA, LOW);
+digitalWrite(redB, LOW);
+
+digitalWrite(yellowA, HIGH);
+digitalWrite(yellowB, HIGH);
+delay(1000);
+  
+digitalWrite(yellowA, LOW);
+digitalWrite(yellowB, LOW);
+
+digitalWrite(redA, HIGH);
+digitalWrite(greenB, HIGH);
+delay(5000);
+
+digitalWrite(greenB, LOW);
+digitalWrite(redC, LOW);
+
+
+digitalWrite(yellowB, HIGH);
+digitalWrite(yellowC, HIGH);
+delay(1000);
+
+digitalWrite(yellowB, LOW);
+digitalWrite(yellowC, LOW);
+
+
+digitalWrite(redB, HIGH);
+digitalWrite(greenC, HIGH);
+digitalWrite(redD, HIGH);
+delay(5000);
+
+digitalWrite(greenC, LOW);
+digitalWrite(redD, LOW);
+
+digitalWrite(yellowC, HIGH);
+digitalWrite(yellowD, HIGH);
+delay(1000);
+
+digitalWrite(yellowC, LOW);
+digitalWrite(yellowD, LOW);
+
+digitalWrite(redC, HIGH);
+digitalWrite(yellowD, HIGH);
+delay(5000);
+
+digitalWrite(redC, LOW);
+digitalWrite(greenD, LOW);
+digitalWrite(redA, LOW);
+
+digitalWrite(yellowA, HIGH);
+digitalWrite(yellowD, HIGH);
+delay(1000);
+
+digitalWrite(yellowA, LOW);
+digitalWrite(yellowD, LOW);
+}
